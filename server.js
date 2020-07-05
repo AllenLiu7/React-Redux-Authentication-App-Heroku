@@ -13,14 +13,10 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 //connect to DB
-connectDB();
-
-require('./passport');
 
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(cors());
 
 // app.use(
@@ -31,9 +27,21 @@ app.use(cors());
 //   })
 // );
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
+
+connectDB();
+
+require('./passport');
+
 app.use(
   session({
-    secret: 'Our secret.',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     maxAge: 24 * 60 * 60 * 100,
@@ -42,14 +50,6 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-
-  app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
-}
 
 app.use('/login', require('./routes/api/login'));
 app.use('/oauth', require('./routes/api/oauth'));
