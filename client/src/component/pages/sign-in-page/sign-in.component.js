@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import SignInForm from '../../sign-in-form/sign-in-form';
 import {
   FacebookLoginButton,
@@ -10,10 +9,10 @@ import './sign-in.styles.scss';
 
 class SignInPage extends Component {
   googleSignInClick = () => {
-    window.open('http://localhost:5000/oauth/google', '_self');
+    window.open('https://lit-dawn-27957.herokuapp.com/oauth/google', '_self');
   };
   facebookSignInClick = () => {
-    window.open('http://localhost:5000/oauth/facebook', '_self');
+    window.open('https://lit-dawn-27957.herokuapp.com/oauth/facebook', '_self');
   };
   render() {
     return (
