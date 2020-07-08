@@ -56,6 +56,13 @@ app.use(
 );
 ```
 
+In client/src/component/pages/sign-in-page/sign-in.component.js, change the widows.open url to
+
+```bash
+your_domain/oauth/google
+your_domain/oauth/facebook
+```
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
