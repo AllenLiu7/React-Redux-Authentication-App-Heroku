@@ -31,6 +31,31 @@ FACEBOOK_CLIENT_SECRET
 SESSION_SECRET
 ```
 
+You should also set the callback url in both google and facebook cloud platform, for example
+
+```bash
+your_domain/google/callback
+your_domain/facebook/callback
+```
+
+In route/api/oauth.js file, change the redirect url to
+
+```bash
+your_domain/secrets
+```
+
+In case you run client code (for example localhost 3000) and server code in different port, in server.js add
+
+```javascript
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  })
+);
+```
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

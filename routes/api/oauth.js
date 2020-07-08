@@ -13,7 +13,7 @@ router.get(
   passport.authenticate('google', { failureRedirect: '/login/fail' }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect('https://lit-dawn-27957.herokuapp.com//secrets');
+    res.redirect('https://lit-dawn-27957.herokuapp.com/secrets');
   }
 );
 
@@ -24,7 +24,7 @@ router.get(
   passport.authenticate('facebook', { failureRedirect: '/login/fail' }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect('https://lit-dawn-27957.herokuapp.com//secrets');
+    res.redirect('https://lit-dawn-27957.herokuapp.com/secrets');
   }
 );
 
