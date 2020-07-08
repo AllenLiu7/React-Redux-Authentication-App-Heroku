@@ -11,6 +11,14 @@ Since this app has both client side and server side code, to install, run
 npm run install-all
 ```
 
+## Usage
+
+Instead of npm start, use npm run dev to run the app locally
+
+```bash
+npm run dev
+```
+
 ## Configuration
 
 To run the app locally with full funtionality, you need to configure the following environment variable. The Best way is to use Dotenv module and create a .env file to configure these variables.
