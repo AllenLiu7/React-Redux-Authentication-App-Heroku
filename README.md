@@ -1,7 +1,7 @@
 # React Passport Authentication Secrete Box
 
-This app is an Authentication system built by React, Redux, Redux-Saga, Passport js and MongoDB.
-User can sign up an account or use Google and Facebook Oauth to log in and reveal the secret page.
+This app is an Authentication system built by React, Redux-Saga, PassportJS and MongoDB.
+User can register an account and use the email and password to log in or use Google or Facebook Oauth to log in and reveal the secret page. All user credentials will be stored at MongoDB Atlas, including the google id and facebook id that come with the oauth response. Authorized users can have persist login using express session. The structure of this app is set up using Redux-Saga. It can easily be set as the starting point for a large React project that needs to have a system to manage users.
 
 ## Installation
 
